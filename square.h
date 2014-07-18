@@ -8,6 +8,20 @@
 // Cuda compilation tools, release 6.0, V6.0.1
 //
 
+/*
+PTX is equivalent to the following kernel:
+
+__global__
+void squareKernel(int *data, int N)
+{
+	int i = blockIdx.x * blockDim.x + threadIdx.x;
+	if(i < N)
+	{
+		data[i] = i * i;
+	}
+}
+*/
+
 char squarePtx64[] = "\n\
 .version 4.0\n\
 .target sm_20\n\
