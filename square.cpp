@@ -54,11 +54,11 @@ void ptxJIT(CUmodule *phModule, CUfunction *phKernel, CUlinkState *lState)
     if (sizeof(void *)==8)
     {
         // Load the PTX from the string squarePtx64 (64-bit)
-        // printf("Loading squarePtx64[] program\n");
-        // myErr = cuLinkAddData(*lState, CU_JIT_INPUT_PTX, (void *)squarePtx64, strlen(squarePtx64)+1, 0, 0, 0, 0);
+         printf("Loading squarePtx64[] program\n");
+         myErr = cuLinkAddData(*lState, CU_JIT_INPUT_PTX, (void *)squarePtx64, strlen(squarePtx64)+1, 0, 0, 0, 0);
         // PTX May also be loaded from file, as per below.
-		printf("Loading from file square.ptx\n");
-        myErr = cuLinkAddFile(*lState, CU_JIT_INPUT_PTX, "square.ptx",0,0,0);
+		//printf("Loading from file square.ptx\n");
+        //myErr = cuLinkAddFile(*lState, CU_JIT_INPUT_PTX, "square.ptx",0,0,0);
     }
 
     if (myErr != CUDA_SUCCESS)
